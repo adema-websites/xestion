@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace with your final public domain when deploying.
+Sitemap: https://www.tudominio.com/sitemap.xml

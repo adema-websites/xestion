@@ -57,10 +57,86 @@ const testimonials = [
     }
 ];
 
+const systemsCatalog = {
+    ventas: {
+        title: "Sistema de ventas en Excel",
+        description:
+            "Gestiona ventas, clientes, comprobantes, cuentas por cobrar y reportes comerciales en un unico flujo.",
+        features: [
+            "Carga de ventas en segundos con validaciones",
+            "Historial de clientes y seguimiento de cobranzas",
+            "Comprobantes listos para imprimir o exportar",
+            "Reportes de ventas por fecha, vendedor y producto",
+            "Alertas de saldos pendientes"
+        ],
+        sectors: [
+            "Comercios minoristas",
+            "Distribuidoras",
+            "Mayoristas",
+            "Servicios con facturacion recurrente"
+        ],
+        images: [
+            "Imagenes sistemas/Form nueva venta.png",
+            "Imagenes sistemas/Impresion venta.png",
+            "Imagenes sistemas/creacion de pedido.png",
+            "Imagenes sistemas/Foto menu.png"
+        ]
+    },
+    caja: {
+        title: "Sistema de caja y movimientos",
+        description:
+            "Controla ingresos, egresos, cierres de caja y flujo de fondos diario con total trazabilidad operativa.",
+        features: [
+            "Registro de movimientos por categoria",
+            "Arqueo y cierre de caja diario",
+            "Conciliacion simple de movimientos",
+            "Reportes de caja por periodo y responsable",
+            "Control de desvio y gastos extraordinarios"
+        ],
+        sectors: [
+            "Gastronomia",
+            "Locales comerciales",
+            "Servicios tecnicos",
+            "Pymes con alta rotacion diaria"
+        ],
+        images: [
+            "Imagenes sistemas/carga de pagos.png",
+            "Imagenes sistemas/cc clientes.png",
+            "Imagenes sistemas/interfaz.jpg",
+            "Imagenes sistemas/reporteroca.jpg"
+        ]
+    },
+    stock: {
+        title: "Sistema de stock e inventario",
+        description:
+            "Mantiene inventario actualizado en tiempo real para mejorar compras, evitar faltantes y reducir sobrestock.",
+        features: [
+            "Altas, bajas y ajustes de inventario",
+            "Control de stock minimo y reposicion",
+            "Listado de productos con filtros avanzados",
+            "Trazabilidad de movimientos de mercaderia",
+            "Reportes de rotacion y valuacion"
+        ],
+        sectors: [
+            "Ferreterias",
+            "Corralones",
+            "Tiendas de indumentaria",
+            "Empresas de insumos"
+        ],
+        images: [
+            "Imagenes sistemas/listado de productos.png",
+            "Imagenes sistemas/cc clientes.png",
+            "Imagenes sistemas/Copia de REPORTE_AGRO.jpg",
+            "Imagenes sistemas/Foto menu.png"
+        ]
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     setupMenu();
     setupFaq();
     setupTestimonials();
+    setupSystemModal();
     setupRevealAnimations();
     duplicateClientLogos();
 });
@@ -208,4 +284,170 @@ function duplicateClientLogos() {
 
     // Duplicate logos once to keep the marquee smooth.
     track.innerHTML += track.innerHTML;
+}
+
+function setupSystemModal() {
+    const modal = document.getElementById("systemModal");
+    const closeButton = document.getElementById("systemModalClose");
+    const cards = document.querySelectorAll(".product-card[data-system-id]");
+    const mainImage = document.getElementById("systemModalMainImage");
+    const thumbs = document.getElementById("systemModalThumbs");
+    const title = document.getElementById("systemModalTitle");
+    const description = document.getElementById("systemModalDescription");
+    const features = document.getElementById("systemModalFeatures");
+    const sectors = document.getElementById("systemModalSectors");
+    const prevButton = document.getElementById("systemModalPrev");
+    const nextButton = document.getElementById("systemModalNext");
+
+    let currentImages = [];
+    let currentImageIndex = 0;
+
+    if (!modal || !closeButton || !cards.length) {
+        return;
+    }
+
+    function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+    }
+
+    function updateMainImage() {
+        if (!mainImage || !currentImages.length) {
+            return;
+        }
+
+        mainImage.src = currentImages[currentImageIndex];
+        mainImage.alt = `Captura ${currentImageIndex + 1} del sistema`;
+
+        document
+            .querySelectorAll(".system-modal__thumb")
+            .forEach((thumb, idx) => thumb.classList.toggle("is-active", idx === currentImageIndex));
+    }
+
+    function goToImage(index) {
+        if (!currentImages.length) {
+            return;
+        }
+        currentImageIndex = (index + currentImages.length) % currentImages.length;
+        updateMainImage();
+    }
+
+    function renderImageGallery(images) {
+        if (!mainImage || !thumbs || !images.length) {
+            return;
+        }
+
+        currentImages = images;
+        currentImageIndex = 0;
+
+        updateMainImage();
+        thumbs.innerHTML = "";
+
+        images.forEach((imagePath, index) => {
+            const thumbButton = document.createElement("button");
+            thumbButton.type = "button";
+            thumbButton.className = "system-modal__thumb";
+            if (index === 0) {
+                thumbButton.classList.add("is-active");
+            }
+
+            thumbButton.innerHTML = `<img src="${imagePath}" alt="Captura ${index + 1} del sistema">`;
+            thumbButton.addEventListener("click", () => {
+                goToImage(index);
+            });
+
+            thumbs.appendChild(thumbButton);
+        });
+    }
+
+    function fillList(listNode, items) {
+        if (!listNode) {
+            return;
+        }
+        listNode.innerHTML = "";
+        items.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            listNode.appendChild(li);
+        });
+    }
+
+    function openModal(systemId) {
+        const system = systemsCatalog[systemId];
+        if (!system) {
+            return;
+        }
+
+        if (title) {
+            title.textContent = system.title;
+        }
+        if (description) {
+            description.textContent = system.description;
+        }
+
+        fillList(features, system.features);
+        fillList(sectors, system.sectors);
+        renderImageGallery(system.images);
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+    }
+
+    cards.forEach((card) => {
+        const systemId = card.dataset.systemId;
+        const actionButton = card.querySelector(".product-open");
+
+        if (actionButton) {
+            actionButton.addEventListener("click", (event) => {
+                event.stopPropagation();
+                openModal(systemId);
+            });
+        }
+
+        card.addEventListener("click", () => openModal(systemId));
+
+        card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openModal(systemId);
+            }
+        });
+    });
+
+    modal.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target instanceof HTMLElement && target.dataset.modalClose === "true") {
+            closeModal();
+        }
+    });
+
+    closeButton.addEventListener("click", closeModal);
+
+    if (prevButton) {
+        prevButton.addEventListener("click", () => goToImage(currentImageIndex - 1));
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener("click", () => goToImage(currentImageIndex + 1));
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (!modal.classList.contains("is-open")) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+            closeModal();
+        }
+
+        if (event.key === "ArrowLeft") {
+            goToImage(currentImageIndex - 1);
+        }
+
+        if (event.key === "ArrowRight") {
+            goToImage(currentImageIndex + 1);
+        }
+    });
 }
