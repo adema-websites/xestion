@@ -1,178 +1,211 @@
-// Review data extracted from the image
-const reviews = [
+const testimonials = [
     {
-        timestamp: "1/23/2024 18:18:35",
-        ratings: { delivery: 10, attention: 10, system: 10, value: 10 },
-        comment: "lo fuimos mejorando cctdo el proceso de crea",
-        instagram: "@bronx.concept",
         business: "Bronx Concept",
-        website: "www.bronxconcept.com"
+        instagram: "@bronx.concept",
+        website: "https://www.bronxconcept.com.ar/",
+        score: "10/10",
+        text: "Excelente servicio. Super personalizado. Nos acompanaron todo el proceso de creacion y siempre atentos a crear un programa a nuestra medida."
     },
     {
-        timestamp: "1/23/2024 18:22:01",
-        ratings: { delivery: 10, attention: 10, system: 10, value: 10 },
-        comment: "media y la relacion costocion . Son profesion",
-        instagram: "Upparnyn",
-        business: "Panaderías y Afines de",
-        website: "https://upparnyn.com.ar"
-    },
-    {
-        timestamp: "1/23/2024 18:25:52",
-        ratings: { delivery: 9, attention: 9, system: 9, value: 9 },
-        comment: "un sistema más allá de la gestión de mi contab",
-        instagram: "@doncelestino2021",
         business: "Don Celestino",
-        website: "https://doncelestino.com.ar"
+        instagram: "@doncelestino2021",
+        website: "https://doncelestino.com.ar/",
+        score: "9/10",
+        text: "Realizan sistemas a tu medida. Me ayudaron con la gestion de la contabilidad y la organizacion de las cuentas corrientes."
     },
     {
-        timestamp: "1/23/2024 18:32:50",
-        ratings: { delivery: 10, attention: 8, system: 9, value: 9 },
-        comment: "locación a city center, es lo que nos faltaba",
-        instagram: "@citycenterlascanas",
-        business: "City Bell",
-        website: "www.citycenterlascanas.com"
+        business: "City Cell",
+        instagram: "@citycell.rafaela",
+        website: "https://www.instagram.com/citycell.rafaela/",
+        score: "8/10",
+        text: "Muy bueno el sistema, ideal para emprendedores que no les gusta lo enlatado y quieren algo realmente adaptado."
     },
     {
-        timestamp: "1/23/2024 18:35:21",
-        ratings: { delivery: 7, attention: 10, system: 9, value: 9 },
-        comment: "sto, esperar confirmar las cajas diarias y n",
-        instagram: "suministrosroca.uy",
         business: "Suministros ROCA",
-        website: "https://suministrosroca.uy"
+        instagram: "@suministrosroca.uy",
+        website: "https://suministrosroca.uy/",
+        score: "9/10",
+        text: "Nos ayudaron a controlar stock, organizar cajas diarias y armar reportes claros de la situacion del negocio."
     },
     {
-        timestamp: "1/23/2024 22:04:57",
-        ratings: { delivery: 10, attention: 10, system: 10, value: 10 },
-        comment: "yudan a ir mejorando el disputos a ayudarte",
-        instagram: "perfucasa",
-        business: "Perfucasa",
-        website: "https://www.perfucasa.com"
+        business: "PerfuCasa",
+        instagram: "@perfucasa",
+        website: "https://www.perfucasa.com/",
+        score: "10/10",
+        text: "Excelente calidad de servicio, siempre atentos y dispuestos a ayudar para lograr el mejor resultado final."
+    },
+    {
+        business: "RC Distribuidora",
+        instagram: "@distribuidorarc_laplata",
+        website: "https://www.instagram.com/distribuidorarc_laplata/",
+        score: "10/10",
+        text: "Crearon un sistema de gestion adaptado a mi necesidad, facil de usar y con planes de financiacion para emprendedores."
+    },
+    {
+        business: "AR Maquinas",
+        instagram: "@armaquinas.rafaela",
+        website: "https://www.instagram.com/armaquinas.rafaela/",
+        score: "8/10",
+        text: "Desarrollamos un sistema desde cero con muchisimas funciones y estuvieron a la altura de las expectativas y exigencias."
+    },
+    {
+        business: "La Stampa",
+        instagram: "sin instagram",
+        website: "",
+        score: "10/10",
+        text: "Quede mas que conforme. Supo interpretar necesidades y buscar soluciones practicas y eficientes para cada requerimiento."
     }
 ];
 
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- LÓGICA DEL MENÚ MÓVIL (HAMBURGUESA) ---
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            // Cambiar el icono de hamburguesa a "X"
-            const icon = navToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-
-    // --- LÓGICA DEL FAQ ---
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-
-        question.addEventListener('click', () => {
-            item.classList.toggle('active');
-        });
-    });
-
-    // --- CTA BUTTONS: asegurar que abren en nueva pestaña y control simple ---
-    const calendlyCTAs = document.querySelectorAll('.cta-calendly');
-    calendlyCTAs.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // si es un <a> con href, dejamos que funcione; si no, abrimos el placeholder
-            const href = btn.getAttribute('href') || 'https://calendly.com/tu-usuario';
-            window.open(href, '_blank', 'noopener');
-        });
-    });
-
-    const waCTAs = document.querySelectorAll('.cta-whatsapp');
-    waCTAs.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const href = btn.getAttribute('href') || 'https://api.whatsapp.com/send?phone=5491157652425';
-            window.open(href, '_blank', 'noopener');
-        });
-    });
-
-    // --- CAROUSEL DE TESTIMONIOS ---
-    const track = document.querySelector('.carousel-track');
-    const dotsContainer = document.querySelector('.carousel-dots');
-    if (track && dotsContainer) {
-        let currentIndex = 0;
-        const itemWidth = 382; // item width + margin (350 + 32)
-        const totalItems = reviews.length * 2; // Duplicate for infinite
-
-        // Duplicate reviews for infinite loop
-        const duplicatedReviews = [...reviews, ...reviews];
-
-        // Populate track
-        duplicatedReviews.forEach(review => {
-            const item = document.createElement('div');
-            item.className = 'carousel-item';
-            item.innerHTML = `
-                <h3>${review.business}</h3>
-                <div class="ratings">
-                    <span class="rating">Entrega: ${review.ratings.delivery}</span>
-                    <span class="rating">Atención: ${review.ratings.attention}</span>
-                    <span class="rating">Sistema: ${review.ratings.system}</span>
-                    <span class="rating">Valor: ${review.ratings.value}</span>
-                </div>
-                <p class="comment">"${review.comment}"</p>
-                <p class="business">${review.instagram}</p>
-                <a href="${review.website.startsWith('http') ? review.website : 'https://' + review.website}" target="_blank" class="website">${review.website}</a>
-            `;
-            track.appendChild(item);
-        });
-
-        // Set track width
-        track.style.width = `${totalItems * itemWidth}px`;
-
-        // Create dots
-        for (let i = 0; i < reviews.length; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'carousel-dot';
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                currentIndex = i;
-                updateCarousel();
-            });
-            dotsContainer.appendChild(dot);
-        }
-
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        function nextSlide() {
-            currentIndex++;
-            if (currentIndex >= reviews.length) {
-                currentIndex = 0;
-                track.style.transition = 'none';
-                track.style.transform = `translateX(0px)`;
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.5s ease-in-out';
-                    updateCarousel();
-                }, 50);
-            } else {
-                updateCarousel();
-            }
-        }
-
-        // Auto-scroll every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Initial update
-        updateCarousel();
-    }
-
+document.addEventListener("DOMContentLoaded", () => {
+    setupMenu();
+    setupFaq();
+    setupTestimonials();
+    setupRevealAnimations();
+    duplicateClientLogos();
 });
+
+function setupMenu() {
+    const button = document.getElementById("menuButton");
+    const nav = document.getElementById("mainNav");
+    if (!button || !nav) {
+        return;
+    }
+
+    button.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("is-open");
+            button.setAttribute("aria-expanded", "false");
+        });
+    });
+}
+
+function setupFaq() {
+    document.querySelectorAll(".faq-question").forEach((questionButton) => {
+        questionButton.addEventListener("click", () => {
+            const item = questionButton.closest(".faq-item");
+            if (!item) {
+                return;
+            }
+            item.classList.toggle("is-open");
+        });
+    });
+}
+
+function setupTestimonials() {
+    const track = document.getElementById("testimonialTrack");
+    const dots = document.getElementById("testimonialDots");
+    if (!track || !dots) {
+        return;
+    }
+
+    testimonials.forEach((testimonial, index) => {
+        const card = document.createElement("article");
+        card.className = "testimonial-card";
+        card.innerHTML = `
+            <h3>${testimonial.business}</h3>
+            <p class="testimonial-score">Valoracion: ${testimonial.score}</p>
+            <p class="testimonial-text">"${testimonial.text}"</p>
+            <p class="testimonial-source">${testimonial.instagram}</p>
+            ${testimonial.website ? `<a class="testimonial-source" href="${testimonial.website}" target="_blank" rel="noopener">${testimonial.website}</a>` : ""}
+        `;
+        track.appendChild(card);
+
+        const dot = document.createElement("button");
+        dot.className = "testimonial-dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Ir al testimonio ${index + 1}`);
+        dots.appendChild(dot);
+    });
+
+    let current = 0;
+    const dotNodes = Array.from(document.querySelectorAll(".testimonial-dot"));
+
+    function cardsVisible() {
+        if (window.innerWidth >= 1040) {
+            return 3;
+        }
+        if (window.innerWidth >= 720) {
+            return 2;
+        }
+        return 1;
+    }
+
+    function maxStartIndex() {
+        return Math.max(0, testimonials.length - cardsVisible());
+    }
+
+    function renderSlider() {
+        current = Math.min(current, maxStartIndex());
+        const card = track.querySelector(".testimonial-card");
+        if (!card) {
+            return;
+        }
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+        const slideX = (card.offsetWidth + gap) * current;
+        track.style.transform = `translateX(-${slideX}px)`;
+
+        dotNodes.forEach((dot, idx) => {
+            dot.classList.toggle("active", idx === current);
+            dot.disabled = idx > maxStartIndex();
+        });
+    }
+
+    dotNodes.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            if (index <= maxStartIndex()) {
+                current = index;
+                renderSlider();
+            }
+        });
+    });
+
+    window.addEventListener("resize", renderSlider);
+
+    setInterval(() => {
+        const limit = maxStartIndex();
+        current = current >= limit ? 0 : current + 1;
+        renderSlider();
+    }, 5000);
+
+    renderSlider();
+}
+
+function setupRevealAnimations() {
+    const revealNodes = document.querySelectorAll(".reveal");
+    if (!revealNodes.length) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    revealNodes.forEach((node) => observer.observe(node));
+}
+
+function duplicateClientLogos() {
+    const track = document.querySelector(".logo-track");
+    if (!track) {
+        return;
+    }
+
+    // Duplicate logos once to keep the marquee smooth.
+    track.innerHTML += track.innerHTML;
+}

@@ -3,301 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xestion Systems - Sistemas en Excel</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Xestion Systems | Sistemas en Excel a medida</title>
+    <meta name="description" content="Sistemas en Excel y web para emprendedores y pymes. Ordena ventas, stock, caja y reportes con soluciones a medida.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="page-noise" aria-hidden="true"></div>
 
-    <header class="header">
-        <div class="container">
-            <div class="nav-container">
-                <a href="#" class="logo">Xestion Systems</a>
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#precios">Precios</a></li>
-                        <li><a href="#demos">Demos</a></li>
-                        <li><a href="#equipo">Equipo</a></li>
-                        <li><a href="#casos">Casos de Éxito</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </nav>
-                <div class="nav-ctas">
-                    <!-- Reemplaza el enlace de Calendly por tu enlace real -->
-                    <a class="btn btn-primary cta-calendly" href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">Agendar</a>
-                </div>
-                <button class="nav-toggle" aria-label="Abrir menú">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="#inicio">
+                <img src="Logos/Isotipo/PNG (Sin fondo)/Isotipo-Xestion-05.png" alt="Xestion Systems">
+                <span>Xestion Systems</span>
+            </a>
+
+            <button id="menuButton" class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="mainNav" class="main-nav" aria-label="Principal">
+                <a href="#servicio">Servicio</a>
+                <a href="#alternativas">Alternativas</a>
+                <a href="#precios">Precios</a>
+                <a href="#sistemas">Sistemas</a>
+                <a href="#clientes">Clientes</a>
+                <a href="#faq">FAQ</a>
+                <a class="btn btn-nav" href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">Agendar</a>
+            </nav>
         </div>
     </header>
 
-    <main>
+    <main id="inicio">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Sistemas para emprendedores y pymes</p>
+                    <h1>Sistemas en Excel para ordenar tu negocio de forma simple y efectiva</h1>
+                    <p class="hero-lead">Ideal para quienes quieren dejar atras el caos de planillas sueltas y empezar a decidir con informacion clara.</p>
+                    <div class="hero-cta">
+                        <a class="btn btn-solid" href="#sistemas">Ver sistemas disponibles</a>
+                        <a class="btn btn-outline" href="https://api.whatsapp.com/send?phone=5491128839719" target="_blank" rel="noopener">Quiero un sistema personalizado</a>
+                    </div>
+                    <p class="tiny-note">Sin tecnicismos, con acompanamiento humano y soporte real.</p>
+                </div>
 
-        <section id="hero" class="hero">
-            <div class="container">
-                <h1>Sistemas en Excel para ordenar tu negocio</h1>
-                <p class="subtitle">De forma simple y efectiva — para emprendedores y pymes</p>
-                <p class="lead">Deja atrás el caos de las planillas y empieza a tomar decisiones con información clara.</p>
-                <div class="cta-group">
-                    <a class="btn btn-gradient cta-calendly" href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">Agendar en Calendly</a>
-                    <a class="btn btn-secondary cta-whatsapp" href="https://api.whatsapp.com/send?phone=5491157652425" target="_blank" rel="noopener">Enviar WhatsApp</a>
+                <div class="hero-card reveal">
+                    <img src="Imagenes sistemas/interfaz.jpg" alt="Vista general de un sistema Xestion">
+                    <div class="hero-card-info">
+                        <p class="hero-card-title">Control en un solo lugar</p>
+                        <p>Ventas, stock, caja y reportes en una estructura clara.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="servicios" class="section">
+        <section id="servicio" class="section section-service">
             <div class="container">
-                <h2>Nuestro Servicio</h2>
-                <p>Transformamos procesos desordenados en sistemas claros y simples que se adaptan a tu negocio.</p>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <div class="service-icon"><i class="fas fa-user-friends"></i></div>
+                <h2 class="section-title reveal">Nuestro servicio</h2>
+                <p class="section-subtitle reveal">Transformamos procesos desordenados en sistemas claros y simples que se adaptan a tu negocio.</p>
+
+                <div class="steps">
+                    <article class="step reveal">
+                        <p class="step-number">01</p>
                         <h3>Te escuchamos</h3>
-                        <p>Agendamos una reunión sin compromiso o enviamos un mensaje directo. ¡Estamos para ayudarte!</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon"><i class="fas fa-laptop"></i></div>
-                        <h3>Te mostramos tu primer diseño</h3>
-                        <p>Construimos un borrador con las pantallas y funcionalidades que necesitas para validar la idea.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                        <p>Reunion para entender tu operacion, sin compromiso y sin vueltas.</p>
+                    </article>
+                    <article class="step reveal">
+                        <p class="step-number">02</p>
+                        <h3>Te mostramos un primer diseno</h3>
+                        <p>Validamos juntos pantallas y flujo para que veas rapido como va a funcionar.</p>
+                    </article>
+                    <article class="step reveal">
+                        <p class="step-number">03</p>
                         <h3>Lo armamos a tu medida</h3>
-                        <p>Desarrollamos el sistema completo, paso a paso, ajustándonos a tus necesidades específicas.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>Te enseñamos a usarlo</h3>
-                        <p>Te capacitamos para que uses el sistema de forma autónoma y saques el máximo provecho.</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon"><i class="fas fa-handshake"></i></div>
-                        <h3>Te entregamos tu sistema</h3>
-                        <p>Recibes el archivo final listo para usar, con soporte incluido para resolver dudas futuras.</p>
-                    </div>
+                        <p>Desarrollo personalizado segun tus necesidades reales.</p>
+                    </article>
+                    <article class="step reveal">
+                        <p class="step-number">04</p>
+                        <h3>Te ensenamos a usarlo</h3>
+                        <p>Capacitacion para que tu equipo lo adopte rapido y bien.</p>
+                    </article>
+                    <article class="step reveal">
+                        <p class="step-number">05</p>
+                        <h3>Te entregamos reportes para decidir</h3>
+                        <p>Informes listos para gestionar mejor el negocio desde el primer dia.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="precios" class="section bg-light">
+        <section class="section section-info">
+            <div class="container info-grid">
+                <article class="info-card reveal">
+                    <h3>Como se paga</h3>
+                    <p>El sistema se paga una sola vez. Los ajustes extra se cotizan aparte y ofrecemos cuotas.</p>
+                </article>
+                <article class="info-card reveal">
+                    <h3>Que necesitas</h3>
+                    <p>PC con Windows y Excel 2019 o superior. Ideal: Office 365 + OneDrive para trabajo compartido.</p>
+                </article>
+                <article class="info-card reveal">
+                    <h3>Suscripcion opcional</h3>
+                    <p>Mantenimiento mensual para mejoras menores, soporte continuo y evolucion de tu sistema.</p>
+                </article>
+                <article class="info-card reveal">
+                    <h3>Escalabilidad</h3>
+                    <p>Puedes ampliar modulos a futuro: presupuestos, compras, cuentas corrientes y mas.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="alternativas" class="section">
             <div class="container">
-                <h2>Opciones y Precios</h2>
-                <p>Tenemos opciones para negocios chicos, pymes y empresas que necesitan escalar. Ve nuestro catálogo de soluciones y precios.</p>
-                <div class="pricing-table">
+                <h2 class="section-title reveal">Alternativas de sistema</h2>
+                <div class="option-grid">
+                    <article class="option-card reveal">
+                        <h3>Excel local</h3>
+                        <p>Para trabajo individual o compartido simple por OneDrive.</p>
+                        <ul>
+                            <li>1 a 2 usuarios</li>
+                            <li>No requiere internet permanente</li>
+                            <li>Costo bajo y pago unico</li>
+                        </ul>
+                    </article>
+                    <article class="option-card reveal">
+                        <h3>Excel + base en la nube</h3>
+                        <p>Para equipos que trabajan en simultaneo y requieren control.</p>
+                        <ul>
+                            <li>2 a 10 usuarios</li>
+                            <li>Roles y permisos por usuario</li>
+                            <li>Mayor seguridad y velocidad</li>
+                        </ul>
+                    </article>
+                    <article class="option-card reveal">
+                        <h3>Sistema web</h3>
+                        <p>Multiusuario y multiplataforma para operar desde cualquier lugar.</p>
+                        <ul>
+                            <li>Usuarios ilimitados</li>
+                            <li>PC, celular o tablet</li>
+                            <li>Ideal para sucursales o vendedores externos</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="center-cta reveal">
+                    <a class="btn btn-solid" href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">Agenda una reunion</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="precios" class="section section-pricing">
+            <div class="container">
+                <h2 class="section-title reveal">Opciones y precios</h2>
+                <p class="section-subtitle reveal">Elige segun tu necesidad y presupuesto. Podemos financiar por cuotas.</p>
+
+                <div class="pricing-wrap reveal">
                     <table>
                         <thead>
                             <tr>
-                                <th>Opción</th>
+                                <th>Opcion</th>
                                 <th>Usuarios</th>
                                 <th>Internet</th>
                                 <th>Precio desde</th>
                                 <th>Soporte</th>
-                                <th>Tecnología</th>
+                                <th>Tecnologia</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><i class="fas fa-file-excel"></i> Básico</td>
+                                <td>Excel Local</td>
                                 <td>1-2</td>
-                                <td><i class="fas fa-times"></i></td>
+                                <td>No</td>
                                 <td>USD 800</td>
-                                <td><i class="fas fa-check"></i></td>
+                                <td>Si</td>
                                 <td>Excel VBA</td>
                             </tr>
                             <tr>
-                                <td><i class="fas fa-network-wired"></i> Internet</td>
+                                <td>Excel + Base Nube</td>
                                 <td>2-10</td>
-                                <td><i class="fas fa-check"></i></td>
+                                <td>Si</td>
                                 <td>USD 1500</td>
-                                <td><i class="fas fa-check"></i></td>
-                                <td>Excel + NET + SQL</td>
+                                <td>Si</td>
+                                <td>Excel + .NET + SQL</td>
                             </tr>
                             <tr>
-                                <td><i class="fas fa-globe"></i> Premium</td>
-                                <td>10+</td>
-                                <td><i class="fas fa-check"></i></td>
-                                <td>USD 3500</td>
-                                <td><i class="fas fa-check"></i></td>
                                 <td>Sistema Web</td>
+                                <td>Ilimitado</td>
+                                <td>Si</td>
+                                <td>USD 3500</td>
+                                <td>Si</td>
+                                <td>Web + SQL Server</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p>Puedes pagar en cuotas. No hay costos ocultos. Garantía disponible a primer mes de entrega.</p>
             </div>
         </section>
 
         <section id="sistemas" class="section">
             <div class="container">
-                <h2>Sistemas Listos para Usar</h2>
-                <p>¿Quieres comprar ya sin algo probado? Tenemos sistemas ya hechos, listos para adaptarse a tu negocio.</p>
-                <div class="sistemas-grid">
-                    <div class="sistema-card">
-                        <div class="sistema-icon"><i class="fas fa-shopping-cart"></i></div>
-                        <h3>Sistema de Ventas</h3>
-                        <p>Controla ventas, clientes y productos de forma sencilla y efectiva.</p>
-                        <button class="btn btn-primary">Ver más</button>
-                    </div>
-                    <div class="sistema-card">
-                        <div class="sistema-icon"><i class="fas fa-cash-register"></i></div>
-                        <h3>Sistema de Caja y Movimientos</h3>
-                        <p>Para tener todo el control de tu caja chica y movimientos financieros.</p>
-                        <button class="btn btn-primary">Ver más</button>
-                    </div>
-                    <div class="sistema-card">
-                        <div class="sistema-icon"><i class="fas fa-boxes"></i></div>
-                        <h3>Sistema de Stock y Productos</h3>
-                        <p>Organiza tu inventario y evita pérdidas por descontrol de stock.</p>
-                        <button class="btn btn-primary">Ver más</button>
-                    </div>
-                </div>
-                <div class="sistemas-cta">
-                    <p class="sistemas-cta-text">¿Lo que buscas no está en la lista? <strong>¡Escríbenos!</strong></p>
-                    <a class="btn btn-whatsapp small-cta sistemas-cta-btn" href="https://api.whatsapp.com/send?phone=5491157652425" target="_blank" rel="noopener" aria-label="Enviar mensaje por WhatsApp">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        &nbsp;Chatear por WhatsApp
-                    </a>
+                <h2 class="section-title reveal">Sistemas listos para usar</h2>
+                <p class="section-subtitle reveal">Puedes empezar con una base probada y luego pedir ajustes para tu negocio.</p>
+
+                <div class="product-grid">
+                    <article class="product-card reveal">
+                        <img src="Imagenes sistemas/Form nueva venta.png" alt="Sistema de ventas en Excel">
+                        <h3>Sistema de ventas</h3>
+                        <p>Ideal para ventas, clientes y comprobantes con flujo claro.</p>
+                    </article>
+                    <article class="product-card reveal">
+                        <img src="Imagenes sistemas/carga de pagos.png" alt="Sistema de caja y pagos">
+                        <h3>Caja y movimientos</h3>
+                        <p>Control de ingresos, egresos y seguimiento de caja diario.</p>
+                    </article>
+                    <article class="product-card reveal">
+                        <img src="Imagenes sistemas/listado de productos.png" alt="Sistema de stock e inventario">
+                        <h3>Stock y productos</h3>
+                        <p>Inventario actualizado para reducir perdidas y faltantes.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="equipo" class="section bg-light">
+        <section class="section section-showcase">
             <div class="container">
-                <h2>Nuestro Equipo</h2>
-                <p>Hoy gente real y profesional detrás de cada sistema que creamos.</p>
+                <h2 class="section-title reveal">Vista de sistemas reales</h2>
+                <div class="showcase-grid">
+                    <img class="reveal" src="Imagenes sistemas/Foto menu.png" alt="Menu principal del sistema">
+                    <img class="reveal" src="Imagenes sistemas/creacion de pedido.png" alt="Creacion de pedido en sistema">
+                    <img class="reveal" src="Imagenes sistemas/cc clientes.png" alt="Cuentas corrientes de clientes">
+                    <img class="reveal" src="Imagenes sistemas/reporteroca.jpg" alt="Reporte de gestion">
+                </div>
+            </div>
+        </section>
+
+        <section id="equipo" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Nuestro equipo</h2>
+                <p class="section-subtitle reveal">Personas reales que convierten procesos complejos en herramientas simples.</p>
+
                 <div class="team-grid">
-                    <div class="team-card">
-                        <img src="https://via.placeholder.com/150/4CAF50/FFFFFF?text=JP" alt="Juan Pablo">
+                    <article class="team-card reveal">
+                        <img src="Fotos del equipo/Juan Maffulli.jpeg" alt="Juan Maffulli">
                         <h3>Juan Pablo</h3>
-                        <p>Especialista en análisis de datos y programación en Excel. Encargado de tomar requerimientos y desarrollo Excel.</p>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://via.placeholder.com/150/4CAF50/FFFFFF?text=LD" alt="Luciano">
+                        <p>Especialista en Excel. Traduce tus ideas a un sistema simple de usar.</p>
+                    </article>
+                    <article class="team-card reveal">
+                        <img src="Fotos del equipo/Leonardo Alegre.jpeg" alt="Leonardo Alegre">
                         <h3>Luciano</h3>
-                        <p>Especialista y desarrollador de sistemas web y Excel. Encargado de idear y desarrollar la estructura web.</p>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://via.placeholder.com/150/4CAF50/FFFFFF?text=LA" alt="Alejandro">
-                        <h3>Alejandro</h3>
-                        <p>Especialista y desarrollador de sistemas en Excel. Encargado del desarrollo Excel y funciones intuitivas.</p>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://via.placeholder.com/150/4CAF50/FFFFFF?text=SM" alt="Santiago">
-                        <h3>Santiago</h3>
-                        <p>Especialista en soporte y capacitación. Asegura que cada cliente use el sistema sin problemas.</p>
+                        <p>Desarrollo y arquitectura. Hace que todo funcione con estabilidad y claridad.</p>
+                    </article>
+                    <article class="team-card reveal">
+                        <img src="Logos/Isotipo/PNG (Sin fondo)/Positivo sin fondo.png" alt="Especialistas de Xestion">
+                        <h3>Alejandro y Santiago</h3>
+                        <p>Pantallas practicas, soporte y reportes para decisiones con datos concretos.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="clientes" class="section section-clients">
+            <div class="container">
+                <h2 class="section-title reveal">Clientes que confian en Xestion</h2>
+                <div class="logo-marquee" aria-label="Logos de clientes">
+                    <div class="logo-track">
+                        <img src="logos clientes/bienestar ortopedico.jpeg" alt="Bienestar Ortopedico">
+                        <img src="logos clientes/Bolsas ecologicas.jpeg" alt="Bolsas Ecologicas">
+                        <img src="logos clientes/crox grafica.jpeg" alt="Crox Grafica">
+                        <img src="logos clientes/Dimasi Construcciones.jpeg" alt="Dimasi Construcciones">
+                        <img src="logos clientes/distrilu.jpg" alt="Distrilu">
+                        <img src="logos clientes/Inmentex.jpeg" alt="Inmentex">
+                        <img src="logos clientes/La Stampa.jpeg" alt="La Stampa">
+                        <img src="logos clientes/LEVELS.jpeg" alt="Levels">
+                        <img src="logos clientes/rc distribuidora.png" alt="RC Distribuidora">
+                        <img src="logos clientes/Suministros roca.jpg" alt="Suministros Roca">
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="section section-testimonials">
+            <div class="container">
+                <h2 class="section-title reveal">Lo que dicen nuestros clientes</h2>
+                <p class="section-subtitle reveal">Resenas reales tomadas de tus respuestas de clientes.</p>
+                <div class="testimonial-slider reveal">
+                    <div id="testimonialTrack" class="testimonial-track"></div>
+                </div>
+                <div id="testimonialDots" class="testimonial-dots" aria-label="Controles de testimonios"></div>
             </div>
         </section>
 
         <section id="faq" class="section">
             <div class="container">
-                <h2>Preguntas Frecuentes</h2>
-                <p>Resolvemos algunas de las dudas más comunes.</p>
+                <h2 class="section-title reveal">Preguntas frecuentes</h2>
                 <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question">¿Qué necesito para usar el sistema?</button>
-                        <div class="faq-answer">Solo necesitas Excel instalado en tu computadora. Para versiones multiusuario, una conexión a internet estable.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">¿Se puede usar desde el celular?</button>
-                        <div class="faq-answer">Sí, las versiones web son compatibles con celulares y tablets. Las de Excel requieren una PC.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">¿Qué pasa si necesito cambios en el futuro?</button>
-                        <div class="faq-answer">Ofrecemos soporte para modificaciones y mejoras. Puedes contactarnos para cotizar actualizaciones.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">¿Ofrecen soporte?</button>
-                        <div class="faq-answer">Sí, incluimos soporte técnico por WhatsApp y corrección de errores en las suscripciones.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="section bg-light">
-            <div class="container">
-                <h2>Opiniones de Nuestros Clientes</h2>
-                <p>Descubre lo que dicen quienes ya transformaron su negocio con nosotros.</p>
-                <div class="carousel-container">
-                    <div class="carousel-wrapper">
-                        <div class="carousel-track">
-                            <!-- Reviews will be populated here by JS -->
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">Que necesito para usar el sistema?</button>
+                        <div class="faq-answer">
+                            <p>Una computadora con Windows, Excel 2019 o superior y, de ser posible, OneDrive para compartir archivos.</p>
                         </div>
-                    </div>
-                    <div class="carousel-dots">
-                        <!-- Dots will be populated here by JS -->
-                    </div>
+                    </article>
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">Se puede usar desde el celular?</button>
+                        <div class="faq-answer">
+                            <p>Si eliges la version web, si. Las versiones en Excel suelen usarse desde PC o notebook.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">Puedo pedir cambios despues de la entrega?</button>
+                        <div class="faq-answer">
+                            <p>Si. Se cotiza como desarrollo adicional, siempre en base al trabajo real que implique.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item reveal">
+                        <button class="faq-question" type="button">Incluyen soporte?</button>
+                        <div class="faq-answer">
+                            <p>Si, con soporte por WhatsApp y acompanamiento para ajustes o dudas operativas.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="cta" class="hero">
-            <div class="container" style="color: white;">
-                <h2 style="color: white;">¿Querés ver cómo funcionaría para tu negocio?</h2>
-                <p>Agenda una reunión sin compromiso o envíanos un WhatsApp directo. ¡Te ayudamos a ordenar tu negocio!</p>
-                <div class="cta-group">
-                    <a class="btn btn-gradient cta-calendly" href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">Agendar en Calendly</a>
-                    <a class="btn btn-secondary cta-whatsapp" href="https://api.whatsapp.com/send?phone=5491157652425" target="_blank" rel="noopener">Enviar WhatsApp</a>
+        <section class="section section-cta">
+            <div class="container cta-box reveal">
+                <h2>Quieres ver como funcionaria para tu negocio?</h2>
+                <p>Agenda una reunion sin compromiso o escribenos por WhatsApp para arrancar.</p>
+                <div class="hero-cta">
+                    <a class="btn btn-solid" href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">Agendar reunion</a>
+                    <a class="btn btn-outline" href="https://api.whatsapp.com/send?phone=5491128839719" target="_blank" rel="noopener">Hablar por WhatsApp</a>
                 </div>
-
             </div>
         </section>
-
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo">Xestion</a>
-                    <p>Sistemas prácticos para Pymes y emprendedores. Centraliza, organiza y decide mejor.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#precios">Precios</a></li>
-                        <li><a href="#demos">Demos</a></li>
-                        <li><a href="#equipo">Equipo</a></li>
-                        <li><a href="#casos">Casos de Éxito</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Recursos</h4>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contacto</h4>
-                    <p>Tel: +54 11 1234-5678</p>
-                    <p>Email: info@xestionsystems.com</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <p class="footer-brand">Xestion Systems</p>
+                <p>Sistemas practicos para pymes y emprendedores.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Xestion Systems. Todos los derechos reservados.</p>
+            <div>
+                <p class="footer-title">Contacto</p>
+                <a href="https://calendly.com/xestion/consulta-general" target="_blank" rel="noopener">calendly.com/xestion/consulta-general</a>
+                <a href="https://api.whatsapp.com/send?phone=5491128839719" target="_blank" rel="noopener">+54 9 11 2883-9719</a>
+            </div>
+            <div>
+                <p class="footer-title">Instagram</p>
+                <a href="https://www.instagram.com/xestion_systems/" target="_blank" rel="noopener">@xestion_systems</a>
             </div>
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5491157652425" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=5491128839719" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">WA</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
     </a>
 
     <script src="script.js"></script>
